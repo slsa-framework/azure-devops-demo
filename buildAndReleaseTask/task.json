@@ -1,0 +1,30 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+    "id": "f93613b8-82ab-4d6a-afac-573ac2426406",
+    "name": "ProvenanceGenerator",
+    "friendlyName": "Provenance Generator",
+    "description": "Provenance Generator",
+    "helpMarkDown": "",
+    "category": "Utility",
+    "author": "Joe Gatt",
+    "version": {
+        "Major": 0,
+        "Minor": 31,
+        "Patch": 0
+    },
+    "inputs": [
+        {
+            "name": "artifactPath",
+            "type": "filePath",
+            "label": "Artifact Path",
+            "defaultValue": "",
+            "required": true,
+            "helpMarkDown": "Path to build artifact or directory of build artifacts"
+        }
+    ],
+    "execution": {
+        "Node10": {
+            "target": "index.js"
+        }
+    }
+}

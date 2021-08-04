@@ -1,0 +1,19 @@
+{
+  "name": "provenancegenerator",
+  "version": "0.8.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^3.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.17.60",
+    "@types/q": "^1.5.5",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
+    "eslint": "^7.32.0",
+    "typescript": "^4.3.5"
+  }
+}

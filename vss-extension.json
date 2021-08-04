@@ -1,0 +1,39 @@
+{
+    "manifestVersion": 1,
+    "id": "build-release-task",
+    "name": "Provenance Generator",
+    "version": "0.31.0",
+    "publisher": "gattjoe",
+    "targets": [
+        {
+            "id": "Microsoft.VisualStudio.Services"
+        }
+    ],    
+    "description": "Provenance Generator",
+    "categories": [
+        "Azure Pipelines"
+    ],
+    "files": [
+        {
+            "path": "buildAndReleaseTask"
+        },
+        {
+            "path": "images", "addressable": true
+        }
+    ],
+    "icons": {
+        "default": "images/extension-icon.png"        
+    },
+    "contributions": [
+        {
+            "id": "custom-build-release-task",
+            "type": "ms.vss-distributed-task.task",
+            "targets": [
+                "ms.vss-distributed-task.tasks"
+            ],
+            "properties": {
+                "name": "buildAndReleaseTask"
+            }
+        }
+    ]
+}
