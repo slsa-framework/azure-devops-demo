@@ -1,15 +1,22 @@
 {
     "manifestVersion": 1,
     "id": "build-release-task",
-    "name": "Provenance Generator",
-    "version": "0.31.0",
+    "name": "SLSA Provenance Generator",
+    "version": "0.32.0",
     "publisher": "gattjoe",
     "targets": [
         {
             "id": "Microsoft.VisualStudio.Services"
         }
-    ],    
-    "description": "Provenance Generator",
+    ],
+    "tags": [
+        "Security",
+        "Azure Pipelines",
+        "Azure DevOps Extensions",
+        "Software Supply Chain Analysis",
+        "SLSA"
+      ],
+    "description": "SLSA Provenance Generator",
     "categories": [
         "Azure Pipelines"
     ],
@@ -21,8 +28,28 @@
             "path": "images", "addressable": true
         }
     ],
+    "links": {
+        "support": {
+          "uri": "mailto:gattjoseph@hotmail.com"
+        },
+        "issues": {
+            "uri": "https://github.com/gattjoe/ado-provenance-demo/issues"
+        }
+      },
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/gattjoe/ado-provenance-demo"
+    },
     "icons": {
         "default": "images/extension-icon.png"        
+    },
+    "content": {
+        "details": {
+            "path": "README.md"
+        },
+        "license": {
+            "path": "LICENSE"
+        }
     },
     "contributions": [
         {

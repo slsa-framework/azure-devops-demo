@@ -1,17 +1,21 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "f93613b8-82ab-4d6a-afac-573ac2426406",
-    "name": "ProvenanceGenerator",
-    "friendlyName": "Provenance Generator",
-    "description": "Provenance Generator",
-    "helpMarkDown": "",
+    "name": "SLSAProvenanceGenerator",
+    "friendlyName": "SLSA Provenance Generator",
+    "description": "A proof-of-concept SLSA provenance generator for Azure DevOps Pipelines.",
+    "helpMarkDown": "Email gattjoseph@hotmail.com for support.",
     "category": "Utility",
     "author": "Joe Gatt",
     "version": {
         "Major": 0,
-        "Minor": 31,
+        "Minor": 32,
         "Patch": 0
     },
+    "runsOn": [
+        "Agent",
+        "MachineGroup"
+    ],
     "inputs": [
         {
             "name": "artifactPath",
@@ -21,6 +25,10 @@
             "required": true,
             "helpMarkDown": "Path to build artifact or directory of build artifacts"
         }
+    ],
+    "visibility": [
+        "Build",
+        "Release"
     ],
     "execution": {
         "Node10": {
