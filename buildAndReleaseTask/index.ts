@@ -54,6 +54,7 @@ async function run() {
         console.log(createJson);
 
         try {
+            /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as no value holds user input */
             fs.writeFile(path.join(tempPath + '/build.provenance'), createJson, (err) => {
                 if (!err) {
                     console.log('done');
@@ -142,6 +143,7 @@ async function prepareSubjectData(artifactPath: string): Promise<Map<string, str
 async function is_file(fileCandidate: string): Promise<boolean> {
 
     try {
+        /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as we are checking if it is a file or not */
         const stats: fs.Stats = fs.statSync(fileCandidate);
 
         return stats.isFile();
@@ -161,6 +163,7 @@ async function buildSubjectData(artifact: string): Promise<Map<string, string>> 
     try {
 
         // Read the data from the artifact
+        /* eslint-disable-next-line security/detect-non-literal-fs-filename -- Safe as the file contents are hashed and not returned to the user */
         const fileBuffer = fs.readFileSync(artifact);
         // Hash the data
         const artifactHash = crypto.createHash('sha256');

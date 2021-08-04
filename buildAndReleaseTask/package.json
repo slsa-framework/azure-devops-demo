@@ -1,19 +1,25 @@
 {
   "name": "provenancegenerator",
-  "version": "0.8.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "A proof-of-concept SLSA provenance generator for Azure DevOps Pipelines.",
   "main": "index.js",
-  "author": "",
-  "license": "ISC",
+  "author": "gattjoe",
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "eslint . --ext .ts"
+  },
   "dependencies": {
     "azure-pipelines-task-lib": "^3.1.4"
   },
   "devDependencies": {
+    "@microsoft/eslint-plugin-sdl": "^0.1.7",
     "@types/node": "^10.17.60",
     "@types/q": "^1.5.5",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "eslint": "^7.32.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.4.0",
     "typescript": "^4.3.5"
   }
 }
