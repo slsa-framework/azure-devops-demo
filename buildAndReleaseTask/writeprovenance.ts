@@ -47,7 +47,7 @@ export async function writeArtifactJson (subjectJson: Array<subjectArtifact>,
         const buildJson = {
           "_type": "https://in-toto.io/Statement/v0.1",
           "subject": subjectJson,
-          "predicateType": "https://in-toto.io/Provenance/v0.1",
+          "predicateType": "https://slsa.dev/provenance/v0.1",
           "predicate": {
             "builder": {
               "id": builderId
