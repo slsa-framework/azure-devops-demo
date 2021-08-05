@@ -45,39 +45,39 @@ export async function writeArtifactJson (subjectJson: Array<subjectArtifact>,
     try {
 
         const buildJson = {
-         "_type": "https://in-toto.io/Statement/v0.1",
-         "subject": subjectJson,
-         "predicateType": "https://in-toto.io/Provenance/v0.1",
-         "predicate": {
-           "builder": {
-            "id": builderId
-         },
-         "metadata": {
-           "buildInvocationId": buildInvocationId,
-           "completeness": {
-            "arguments": true,
-            "environment": false,
-            "materials": false
-          },
-          "reproducible": false,
-          "BuildFinishedOn": new Date()
-         },
-         "recipe": {
-            "type": "https://dev.azure.com/Attestations/ProvenanceGenerator@0",
-            "definedInMaterial": 0,
-            "entryPoint": buildDefinitionName,
-            "arguments": null,
-            "environment": null
-          },
-          "materials": [
-            {
-              "uri": materialsUri,
-              "digest": {
-                "sha1": buildSourceVersion
+          "_type": "https://in-toto.io/Statement/v0.1",
+          "subject": subjectJson,
+          "predicateType": "https://slsa.dev/provenance/v0.1",
+          "predicate": {
+            "builder": {
+              "id": builderId
+            },
+            "metadata": {
+              "buildInvocationId": buildInvocationId,
+              "completeness": {
+                "arguments": true,
+                "environment": false,
+                "materials": false
+              },
+              "reproducible": false,
+              "buildFinishedOn": new Date()
+            },
+            "recipe": {
+              "type": "https://dev.azure.com/Attestations/ProvenanceGenerator@0",
+              "definedInMaterial": 0,
+              "entryPoint": buildDefinitionName,
+              "arguments": null,
+              "environment": null
+            },
+            "materials": [
+              {
+                "uri": materialsUri,
+                "digest": {
+                  "sha1": buildSourceVersion
+                }
               }
-            }
-          ]
-        }
+            ]
+          }
         }
 
         const json = JSON.stringify(buildJson, null, 4);
