@@ -60,7 +60,7 @@ export async function writeArtifactJson (subjectJson: Array<subjectArtifact>,
                 "materials": false
               },
               "reproducible": false,
-              "BuildFinishedOn": new Date()
+              "buildFinishedOn": new Date()
             },
             "recipe": {
               "type": "https://dev.azure.com/Attestations/ProvenanceGenerator@0",
