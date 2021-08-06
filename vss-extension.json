@@ -33,12 +33,12 @@
           "uri": "mailto:gattjoseph@hotmail.com"
         },
         "issues": {
-            "uri": "https://github.com/gattjoe/ado-provenance-demo/issues"
+            "uri": "https://github.com/slsa-framework/azure-devops-demo/issues"
         }
       },
     "repository": {
         "type": "git",
-        "uri": "https://github.com/gattjoe/ado-provenance-demo"
+        "uri": "https://github.com/slsa-framework/azure-devops-demo"
     },
     "icons": {
         "default": "images/extension-icon.png"        

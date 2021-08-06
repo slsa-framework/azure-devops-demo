@@ -15,3 +15,19 @@ While there are no integrity guarantees on the produced provenance at L1, publis
 ### Security and Support
 
 This is demo repo and is not intended to be used in production contexts. As such, we cannot make any commitments of future support.
+
+### YAML Pipeline Example
+
+Below is sample YAML to insert into your build or release pipeline.
+
+```
+steps:
+- task: gattjoe.SLSAProvenanceGenerator.custom-build-release-task.SLSAProvenanceGenerator@0
+  displayName: 'SLSA Provenance Generator'
+  inputs:
+    artifactPath: dist
+```
+
+### Results
+
+The provenance is generated and output to stdout for the task. Additionally, Azure DevOps will publish an immutable artifact titled "build.provenance".
