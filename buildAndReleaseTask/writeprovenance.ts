@@ -63,7 +63,7 @@ export async function writeArtifactJson (subjectJson: Array<subjectArtifact>,
               "buildFinishedOn": new Date()
             },
             "recipe": {
-              "type": "https://dev.azure.com/Attestations/ProvenanceGenerator@0",
+              "type": "https://dev.azure.com/Attestations/SLSAProvenanceGenerator@0",
               "definedInMaterial": 0,
               "entryPoint": buildDefinitionName,
               "arguments": null,

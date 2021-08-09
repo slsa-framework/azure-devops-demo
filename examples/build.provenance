@@ -1,0 +1,48 @@
+{
+    "_type": "https://in-toto.io/Statement/v0.1",
+    "subject": [
+        {
+            "name": "ocsp-checker-1.8.2.tar.gz",
+            "digest": {
+                "sha256": "a7ee92a6be222de773c0ec4075703308aea5280fbfadb5e25ecea4acabd500c0"
+            }
+        },
+        {
+            "name": "ocsp_checker-1.8.2-py3-none-any.whl",
+            "digest": {
+                "sha256": "3749a23dd1702efb9512faf4deaf1bb0452aece799ba21d40d3273b62c8c6095"
+            }
+        }
+    ],
+    "predicateType": "https://slsa.dev/provenance/v0.1",
+    "predicate": {
+        "builder": {
+            "id": "https://dev.azure.com/gattjoe/OCSPChecker/Attestations"
+        },
+        "metadata": {
+            "buildInvocationId": "https://dev.azure.com/gattjoe/OCSPChecker/_build/228",
+            "completeness": {
+                "arguments": true,
+                "environment": false,
+                "materials": false
+            },
+            "reproducible": false,
+            "buildFinishedOn": "2021-08-06T16:54:22.465Z"
+        },
+        "recipe": {
+            "type": "https://dev.azure.com/Attestations/SLSAProvenanceGenerator@0",
+            "definedInMaterial": 0,
+            "entryPoint": "OCSPChecker-CI",
+            "arguments": null,
+            "environment": null
+        },
+        "materials": [
+            {
+                "uri": "GitHub+https://github.com/gattjoe/OCSPChecker",
+                "digest": {
+                    "sha1": "dfcb922ec99fb35bbe408926ce2a745bf922f09b"
+                }
+            }
+        ]
+    }
+}
