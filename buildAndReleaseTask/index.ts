@@ -34,13 +34,22 @@ async function run() {
         const teamFoundationCollectionUri: string = <string>tl.getVariable('System.TeamFoundationCollectionUri');
         const teamProject: string = <string>tl.getVariable('System.TeamProject');
 
-        /*
-        BuildUri: vstfs:///Build/Build/167 <- removed
-        buildNumber: 20210726.2 <- removed
-        teamProject: https://dev.azure.com/gattjoe/ProvenanceGenerator <- removed
-        buildRepositoryId: gattjoe/ado-provenance-demo <- removed
-        buildRepositoryName: gattjoe/ado-provenance-demo <- removed
-        */
+        // Determine the SPDX Download Location
+        // https://spdx.github.io/spdx-spec/3-package-information/#37-package-download-location
+        let vcsType  = '';
+
+        if (buildRepositoryProvider === 'Git' || buildRepositoryProvider === 'GitHub' || buildRepositoryProvider === 'TfsGit') {
+            vcsType = 'git+https';
+        } else if (buildRepositoryProvider === 'TfsVersionControl') {
+            vcsType = 'tfvc+https';
+        } else if (buildRepositoryProvider === 'Svn') {
+            vcsType = 'svn+https';
+        }
+        else {
+            // 
+            tl.setResult(tl.TaskResult.Failed, (`${buildRepositoryUri}: VCS type unknown, expecting: git, svn, or tfvc.`));
+        }
+
 
         // Prepare the artifact data
         const artifactSubjectData: Map<string, string> = await prepareSubjectData(artifactPath);
@@ -49,7 +58,7 @@ async function run() {
 
         const builderId = (`${teamFoundationCollectionUri}${teamProject}/Attestations`);
         const buildInvocationId = (`${teamFoundationCollectionUri}${teamProject}/_build/${buildId}`);
-        const materialsUri = (`${buildRepositoryProvider}+${buildRepositoryUri}`);
+        const materialsUri = (`${vcsType}+${buildRepositoryUri}`);
         const createJson: string = await wp.writeArtifactJson(foo, builderId, buildInvocationId, materialsUri, buildSourceVersion, buildDefinitionName);
         console.log(createJson);
 
