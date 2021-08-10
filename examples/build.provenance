@@ -38,7 +38,7 @@
         },
         "materials": [
             {
-                "uri": "GitHub+https://github.com/gattjoe/OCSPChecker",
+                "uri": "git+https://github.com/gattjoe/OCSPChecker",
                 "digest": {
                     "sha1": "dfcb922ec99fb35bbe408926ce2a745bf922f09b"
                 }
