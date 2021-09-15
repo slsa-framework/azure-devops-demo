@@ -1,0 +1,21 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  - main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  # traditionally you would build your code here and generate an artifact
+  - script: echo "onion, tomato, jalapeno, cilantro, lime, salt" > salsa.txt
+    displayName: Build artifact
+
+  # TODO: Move the task to the slsa-framework project.
+  - task: gattjoe.SLSAProvenanceGenerator.custom-build-release-task.SLSAProvenanceGenerator@0
+    displayName: Generate provenance
+    inputs:
+      artifactPath: salsa.txt
