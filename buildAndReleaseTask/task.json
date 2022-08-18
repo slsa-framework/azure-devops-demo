@@ -30,8 +30,9 @@
         "Build",
         "Release"
     ],
+    "minimumAgentVersion": "2.206.1",
     "execution": {
-        "Node10": {
+        "Node16": {
             "target": "index.js"
         }
     }
