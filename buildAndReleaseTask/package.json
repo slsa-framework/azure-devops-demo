@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "@microsoft/eslint-plugin-sdl": "^0.1.7",
-    "@types/node": "^10.17.60",
+    "@types/node": "16.11.49",
     "@types/q": "^1.5.5",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
