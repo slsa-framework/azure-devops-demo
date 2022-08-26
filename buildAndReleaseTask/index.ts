@@ -36,7 +36,7 @@ async function run() {
 
         // Determine the SPDX Download Location
         // https://spdx.github.io/spdx-spec/3-package-information/#37-package-download-location
-        let vcsType  = '';
+        let vcsType = '';
 
         if (buildRepositoryProvider === 'Git' || buildRepositoryProvider === 'GitHub' || buildRepositoryProvider === 'TfsGit') {
             vcsType = 'git+https';
@@ -54,7 +54,7 @@ async function run() {
         // Prepare the artifact data
         const artifactSubjectData: Map<string, string> = await prepareSubjectData(artifactPath);
 
-        const foo:Array<wp.subjectArtifact> = await wp.writeArtifactData(artifactSubjectData);
+        const foo: Array<wp.subjectArtifact> = await wp.writeArtifactData(artifactSubjectData);
 
         const builderId = (`${teamFoundationCollectionUri}${teamProject}/Attestations`);
         const buildInvocationId = (`${teamFoundationCollectionUri}${teamProject}/_build/${buildId}`);
@@ -70,17 +70,27 @@ async function run() {
                 }
             });
         } catch (err) {
-            throw new Error (err);
+            if (err instanceof Error) {
+                tl.setResult(tl.TaskResult.Failed, err.message);
+            } else {
+                console.log('Unexpected error', err);
+            }
+            return;
         }
 
-        console.log('##vso[artifact.upload containerfolder=SLSALevel1;artifactname=build.provenance]'+ (path.join(tempPath + '/build.provenance')));
+        console.log('##vso[artifact.upload containerfolder=SLSALevel1;artifactname=build.provenance]' + (path.join(tempPath + '/build.provenance')));
 
         tl.setResult(tl.TaskResult.Succeeded, "Job succeeded.")
 
     }
     catch (err) {
 
-        tl.setResult(tl.TaskResult.Failed, err.message);
+        if (err instanceof Error) {
+            tl.setResult(tl.TaskResult.Failed, err.message);
+        } else {
+            console.log('Unexpected error', err);
+        }
+        return;
     }
 }
 
@@ -103,7 +113,7 @@ async function prepareSubjectData(artifactPath: string): Promise<Map<string, str
                 tl.debug('prepareSubjectData: ' + `${artifactPath}` + ' is a single artifact.');
 
                 subject = await buildSubjectData(artifactPath);
-                
+
                 return subject;
 
             } else {
@@ -168,7 +178,7 @@ async function is_file(fileCandidate: string): Promise<boolean> {
  * @artifact: string
  */
 async function buildSubjectData(artifact: string): Promise<Map<string, string>> {
-    
+
     try {
 
         // Read the data from the artifact
@@ -183,7 +193,7 @@ async function buildSubjectData(artifact: string): Promise<Map<string, string>> 
         subjectData.set(artifactName, artifactHash.digest('hex'));
 
         return subjectData;
-        
+
     } catch (err) {
 
         throw new Error('buildSubjectData: ' + err);

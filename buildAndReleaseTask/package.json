@@ -9,18 +9,18 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "azure-pipelines-task-lib": "^3.1.4"
+    "azure-pipelines-task-lib": "4.0.0-preview"
   },
   "devDependencies": {
-    "@microsoft/eslint-plugin-sdl": "^0.1.7",
+    "@microsoft/eslint-plugin-sdl": "0.2.0",
     "@tsconfig/node16-strictest": "1.0.3",
-    "@types/node": "16.11.56",
-    "@types/q": "^1.5.5",
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
-    "eslint": "^7.32.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-security": "^1.4.0",
-    "typescript": "^4.3.5"
+    "@types/node": "16.11.49",
+    "@types/q": "1.5.5",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "5.35.1",
+    "@typescript-eslint/parser": "5.35.1",
+    "eslint": "8.22.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-security": "1.5.0"
   }
 }

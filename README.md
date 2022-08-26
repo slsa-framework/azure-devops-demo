@@ -31,3 +31,7 @@ steps:
 ### Results
 
 The provenance is generated and output to stdout for the task. Additionally, Azure DevOps will publish an immutable artifact titled "build.provenance".
+
+### Agent Requirements
+
+The extension has been updated to use Node 16. As a consequence, the minimum agent version supported is 2.206.1 per [this](https://github.com/microsoft/azure-pipelines-tasks/blob/master/docs/migrateNode16.md) guidance.
