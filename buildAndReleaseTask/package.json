@@ -16,7 +16,7 @@
     "@tsconfig/node16-strictest": "1.0.3",
     "@types/node": "16.11.49",
     "@types/q": "1.5.5",
-    "@types/uuid": "^8.3.4",
+    "@types/uuid": "8.3.4",
     "@typescript-eslint/eslint-plugin": "5.35.1",
     "@typescript-eslint/parser": "5.35.1",
     "eslint": "8.22.0",
