@@ -9,10 +9,6 @@ on:
       - main
   pull_request:
 
-defaults:
-  run:
-    working-directory: buildAndReleaseTask
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,8 +19,13 @@ jobs:
         uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
+          cache: "npm"
+          cache-dependency-path: buildAndReleaseTask/package-lock.json
 
-      - run: npm ci
+      - name: Install packages
+        run: npm ci
+        working-directory: buildAndReleaseTask
 
-      - run: npm run lint
+      - name: Run lint
+        run: npm run lint
+        working-directory: buildAndReleaseTask
