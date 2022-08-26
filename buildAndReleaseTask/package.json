@@ -14,7 +14,7 @@
   "devDependencies": {
     "@microsoft/eslint-plugin-sdl": "^0.1.7",
     "@tsconfig/node16-strictest": "1.0.3",
-    "@types/node": "16.11.49",
+    "@types/node": "16.11.56",
     "@types/q": "^1.5.5",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
