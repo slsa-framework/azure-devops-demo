@@ -6,6 +6,7 @@
   "author": "gattjoe",
   "license": "Apache-2.0",
   "scripts": {
+    "build": "tsc",
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
