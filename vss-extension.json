@@ -22,7 +22,10 @@
     ],
     "files": [
         {
-            "path": "buildAndReleaseTask"
+            "path": "dist"
+        },
+        {
+            "path": "node_modules"
         },
         {
             "path": "images", "addressable": true
