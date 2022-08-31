@@ -33,3 +33,9 @@ jobs:
       - name: Run build
         run: npm run build
         working-directory: buildAndReleaseTask
+
+      - name: Run smoke test
+        working-directory: buildAndReleaseTask
+        env:
+          INPUT_ARTIFACTPATH: ../images
+        run: node index.js
