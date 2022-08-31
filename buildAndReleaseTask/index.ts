@@ -47,7 +47,7 @@ async function run() {
         }
         else {
             // 
-            tl.setResult(tl.TaskResult.Failed, (`${buildRepositoryUri}: VCS type unknown, expecting: git, svn, or tfvc.`));
+            tl.setResult(tl.TaskResult.Skipped, (`${buildRepositoryUri}: VCS type unknown, expecting: git, svn, or tfvc.`));
         }
 
 
@@ -80,7 +80,7 @@ async function run() {
 
         console.log('##vso[artifact.upload containerfolder=SLSALevel1;artifactname=build.provenance]' + (path.join(tempPath + '/build.provenance')));
 
-        tl.setResult(tl.TaskResult.Succeeded, "Job succeeded.")
+        tl.setResult(tl.TaskResult.Succeeded, "Job succeeded.", true)
 
     }
     catch (err) {
@@ -124,6 +124,7 @@ async function prepareSubjectData(artifactPath: string): Promise<Map<string, str
                 tl.debug('prepareSubjectData: ' + `${artifactPath}` + ' contains multiple artifacts.')
 
                 try {
+                    /* eslint-disable-next-line security/detect-non-literal-fs-filename -- The ADO agent is responsible for sanitizing this beyond the agent working directory */
                     arrayOfFiles = fs.readdirSync(artifactPath);
 
                 } catch (err) {

@@ -35,7 +35,15 @@ jobs:
         working-directory: buildAndReleaseTask
 
       - name: Run smoke test
+        # This is a very basic smoke test that imitates the env that an agent runs in
         working-directory: buildAndReleaseTask
         env:
+          BUILD_BUILDID: 001
+          BUILD_DEFINITIONNAME: Azure DevOps Demo CI
+          BUILD_REPOSITORY_PROVIDER: Git
+          BUILD_REPOSITORY_URI: https://github.com/slsa-framework/azure-devops-demo
+          BUILD_SOURCEVERSION: dfcb922ec99fb35bbe408926ce2a745bf922f09b
           INPUT_ARTIFACTPATH: ../images
+          SYSTEM_TEAMFOUNDATIONCOLLECTIONURI: https://github.com/slsa-framework/
+          SYSTEM_TEAMPROJECT: azure-devops-demo
         run: node index.js
