@@ -1,4 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"]
+  "extends": [
+    "config:base"
+  ],
+  "ignoreDeps": [
+    "@microsoft/eslint-plugin-sdl",
+    "@tsconfig/node16-strictest",
+    "@types/node",
+    "@types/q",
+    "@types/uuid",
+    "@typescript-eslint/eslint-plugin",
+    "@typescript-eslint/parser",
+    "eslint",
+    "eslint-plugin-node",
+    "eslint-plugin-security"
+  ]
 }
