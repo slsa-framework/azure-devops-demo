@@ -10,7 +10,7 @@
     "lint": "eslint . --ext .ts"
   },
   "dependencies": {
-    "azure-pipelines-task-lib": "4.1.0"
+    "azure-pipelines-task-lib": "4.17.3"
   },
   "devDependencies": {
     "@microsoft/eslint-plugin-sdl": "0.2.0",
